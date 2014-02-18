@@ -57,6 +57,13 @@ Default value: `null`
 
 A custom preprocessor command (ex: `'~/bin/lessc'`).
 
+### verbose
+
+Type: `Boolean`
+Default value: `false`
+
+Show log messages when generating the documentation.
+
 ## License
 
 (MIT License)
