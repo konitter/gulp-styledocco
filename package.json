@@ -24,12 +24,6 @@
   "engines": {
     "node": ">= 0.8.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/wearefractal/gulp-concat/raw/master/LICENSE"
-    }
-  ],
   "dependencies": {
     "through2": "~0.4.1",
     "gulp-util": "~2.2.14",
