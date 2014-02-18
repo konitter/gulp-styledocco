@@ -1,0 +1,44 @@
+{
+  "name": "gulp-styledocco",
+  "description": "StyleDocco plugin for gulp.",
+  "version": "0.0.1",
+  "homepage": "http://github.com/konitter/gulp-styledocco",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/konitter/gulp-styledocco.git"
+  },
+  "author": {
+    "name": "konitter",
+    "url": "http://re-dzine.net/"
+  },
+  "main": "./index.js",
+  "keywords": [
+    "gulpplugin",
+    "styleguide",
+    "styledocco",
+    "stylus",
+    "sass",
+    "scss",
+    "css"
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/wearefractal/gulp-concat/raw/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "through2": "~0.4.1",
+    "gulp-util": "~2.2.14",
+    "lodash.defaults": "~2.4.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/konitter/gulp-styledocco/raw/master/LICENSE"
+    }
+  ]
+}
