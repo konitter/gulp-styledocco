@@ -43,7 +43,7 @@ module.exports = function (options) {
 
     args.push('--out', opts.out);
     if (opts.name !== null) {
-      args.push('--name', opts.name);
+      args.push('--name', '"' + opts.name + '"');
     }
     if (opts.preprocessor !== null) {
       args.push('--preprocessor', opts.preprocessor);
