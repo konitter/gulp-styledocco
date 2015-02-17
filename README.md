@@ -22,7 +22,8 @@ gulp.task('styledocco', function () {
   gulp.src('src/**/*.css')
     .pipe(styledocco({
       out: 'docs',
-      name: 'My Project'
+      name: 'My Project',
+      'no-minify': true
     }));
 });
 ```
@@ -63,6 +64,13 @@ Type: `Boolean`
 Default value: `false`
 
 Show log messages when generating the documentation.
+
+### no-minify
+
+Type: `Boolean`
+Default value: `false`
+
+Do not minify the code.
 
 ## License
 
