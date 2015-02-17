@@ -56,6 +56,9 @@ module.exports = function (options) {
     if (opts.verbose) {
       args.push('--verbose', opts.verbose);
     }
+    if (opts['no-minify']) {
+      args.push('--no-minify');
+    }
     args.push(firstFile.base);
 
     exec(bin + args.join(' '), function (error, stdout, stderr) {
