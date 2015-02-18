@@ -16,6 +16,7 @@ module.exports = function (options) {
     include: null,
     preprocessor: null
   });
+  var count = 0;
 
   function transform (file, encoding, cb) {
 
@@ -28,6 +29,8 @@ module.exports = function (options) {
       this.emit('error', new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return cb();
     }
+
+    count++;
 
     if (!firstFile) {
       firstFile = file;
@@ -59,7 +62,12 @@ module.exports = function (options) {
     if (opts['no-minify']) {
       args.push('--no-minify');
     }
-    args.push(firstFile.base);
+
+    if (count > 1) {
+      args.push(firstFile.base);
+    } else {
+      args.push(firstFile.path);
+    }
 
     exec(bin + args.join(' '), function (error, stdout, stderr) {
       if (stderr) {
