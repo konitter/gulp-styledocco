@@ -2,7 +2,7 @@ var gutil       = require('gulp-util');
 var PluginError = gutil.PluginError;
 var through     = require('through2');
 var defaults    = require('lodash.defaults');
-var exec        = require('child_process').exec;
+var execFile        = require('child_process').execFile;
 
 var PLUGIN_NAME = 'gulp-styledocco';
 
@@ -41,12 +41,12 @@ module.exports = function (options) {
 
   function flush (cb) {
 
-    var bin = 'styledocco ';
+    var bin = 'styledocco';
     var args = [];
 
     args.push('--out', opts.out);
     if (opts.name !== null) {
-      args.push('--name', '"' + opts.name + '"');
+      args.push('--name', opts.name );
     }
     if (opts.preprocessor !== null) {
       args.push('--preprocessor', opts.preprocessor);
@@ -69,7 +69,7 @@ module.exports = function (options) {
       args.push(firstFile.path);
     }
 
-    exec(bin + args.join(' '), function (error, stdout, stderr) {
+    execFile(bin, args, function (error, stdout, stderr) {
       if (stderr) {
         gutil.log(stderr);
       }
