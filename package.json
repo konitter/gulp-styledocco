@@ -25,14 +25,23 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "through2": "~0.4.1",
-    "gulp-util": "~2.2.14",
-    "lodash.defaults": "~2.4.1"
+    "duplexify": "^3.4.2",
+    "gulp-util": "^2.2.14",
+    "highland": "^2.5.1",
+    "lodash": "^2.4.1",
+    "through2": "^2.0.0"
   },
   "licenses": [
     {
       "type": "MIT",
       "url": "http://github.com/konitter/gulp-styledocco/raw/master/LICENSE"
     }
-  ]
+  ],
+  "devDependencies": {
+    "end-of-stream": "^1.1.0",
+    "es6-promise": "^3.0.2",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
+    "stream-exhaust": "^1.0.1"
+  }
 }
