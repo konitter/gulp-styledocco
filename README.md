@@ -6,8 +6,6 @@
 
 This task requires you to have StyleDocco installed globally. Run `npm install -g styledocco` to install it.
 
-**This plugin has NOT been tested thoroughly.**
-
 ## Install
 
 ```
@@ -19,7 +17,18 @@ npm install gulp-styledocco --save-dev
 var styledocco = require('gulp-styledocco');
 
 gulp.task('styledocco', function () {
-  gulp.src('src/**/*.css')
+  // gulp-styledocco can take a directory or
+  return gulp.src('src/', { read: false })
+    .pipe(styledocco({
+      out: 'docs',
+      name: 'My Project',
+      'no-minify': true
+    }));
+});
+
+gulp.task('styledocco-alter', function () {
+  // files (common path prefix will be used).
+  return gulp.src('src/**/*.css', { read: false })
     .pipe(styledocco({
       out: 'docs',
       name: 'My Project',
@@ -40,7 +49,7 @@ The output directory.
 ### name
 
 Type: `String`
-Default value: `Styledocco`
+Default value: `name` field in your `package.json`
 
 The name of the project.
 
