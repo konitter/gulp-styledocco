@@ -22,7 +22,7 @@ describe('styledocco', function () {
     it('should return a specified --name option when given the "name" option', function () {
       var args = createOptArgsByOpts({ name: 'STYLEDOCCO_NAME' });
 
-      assert.deepEqual(args, [ '--name', '"STYLEDOCCO_NAME"' ]);
+      assert.deepEqual(args, [ '--name', 'STYLEDOCCO_NAME' ]);
     });
 
 
@@ -106,7 +106,7 @@ describe('styledocco', function () {
 
       return callWhenStreamEnd(stream, function () {
         sinon.assert.calledOnce(execMock);
-        sinon.assert.calledWith(execMock, 'styledocco path/to/file');
+        sinon.assert.calledWith(execMock, 'styledocco', ['path/to/file']);
       });
     });
 
@@ -123,7 +123,7 @@ describe('styledocco', function () {
 
       return callWhenStreamEnd(stream, function () {
         sinon.assert.calledOnce(execMock);
-        sinon.assert.calledWith(execMock, 'styledocco path/to/file1 path/to/file2 path/to/file3');
+        sinon.assert.calledWith(execMock, 'styledocco', ['path/to/file1', 'path/to/file2', 'path/to/file3']);
       });
     });
 
@@ -141,7 +141,7 @@ describe('styledocco', function () {
 
       return callWhenStreamEnd(stream, function () {
         sinon.assert.calledOnce(execMock);
-        sinon.assert.calledWith(execMock, 'styledocco --out path/to/out path/to/file');
+        sinon.assert.calledWith(execMock, 'styledocco', ['--out', 'path/to/out', 'path/to/file']);
       });
     });
 
@@ -160,7 +160,7 @@ describe('styledocco', function () {
 
       return callWhenStreamEnd(stream, function () {
         sinon.assert.calledOnce(execMock);
-        sinon.assert.calledWith(execMock, 'styledocco --out path/to/out --verbose path/to/file');
+        sinon.assert.calledWith(execMock, 'styledocco', ['--out', 'path/to/out', '--verbose', 'path/to/file']);
       });
     });
   });
@@ -172,7 +172,7 @@ function createExecutorMock () {
 
   // 2nd argument of the executor is a callback.
   // It should be called.
-  execMock.callsArgAsync(1);
+  execMock.callsArgAsync(2);
 
   return execMock;
 }
