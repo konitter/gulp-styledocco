@@ -2,7 +2,7 @@ var gutil       = require('gulp-util');
 var PluginError = gutil.PluginError;
 var through     = require('through2');
 var defaults    = require('lodash.defaults');
-var exec        = require('child_process').exec;
+var exec        = require('child_process').execFile;
 
 var PLUGIN_NAME = 'gulp-styledocco';
 
@@ -68,8 +68,9 @@ module.exports = function (options) {
     } else {
       args.push(firstFile.path);
     }
-
-    exec(bin + args.join(' '), function (error, stdout, stderr) {
+    var cmd = bin + args.join(' ');
+    cmd = cmd.split(' ');
+    exec(cmd[0], cmd.slice(1), function (error, stdout, stderr) {
       if (stderr) {
         gutil.log(stderr);
       }
